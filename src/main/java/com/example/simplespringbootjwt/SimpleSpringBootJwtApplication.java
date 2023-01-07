@@ -12,5 +12,4 @@ public class SimpleSpringBootJwtApplication {
     public static void main(String[] args) {
         SpringApplication.run(SimpleSpringBootJwtApplication.class, args);
     }
-
 }
