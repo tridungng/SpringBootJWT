@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.simplespringbootjwt.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.simplespringbootjwt.service;
 
 import java.util.ArrayList;
 import org.springframework.security.core.userdetails.User;

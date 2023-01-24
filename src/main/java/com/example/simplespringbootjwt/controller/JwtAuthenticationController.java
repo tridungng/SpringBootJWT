@@ -1,13 +1,11 @@
-package com.example.controller;
+package com.example.simplespringbootjwt.controller;
 
-import com.example.config.JwtTokenUtil;
-import com.example.model.JwtRequest;
-import com.example.model.JwtResponse;
-import com.example.service.JwtUserDetailsService;
+import com.example.simplespringbootjwt.config.JwtTokenUtil;
+import com.example.simplespringbootjwt.model.JwtRequest;
+import com.example.simplespringbootjwt.model.JwtResponse;
+import com.example.simplespringbootjwt.service.JwtUserDetailsService;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequiredArgsConstructor
 public class JwtAuthenticationController {
+
     private final AuthenticationManager authenticationManager;
     private final JwtTokenUtil jwtTokenUtil;
     private final JwtUserDetailsService jwtUserDetailsService;
