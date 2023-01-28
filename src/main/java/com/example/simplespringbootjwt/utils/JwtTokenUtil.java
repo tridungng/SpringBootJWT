@@ -1,4 +1,4 @@
-package com.example.simplespringbootjwt.config;
+package com.example.simplespringbootjwt.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -44,7 +44,8 @@ public class JwtTokenUtil implements Serializable {
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        return (Claims) Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJwt(token);
+        return Jwts.parserBuilder().setSigningKey(getSigningKey()).build()
+            .parseClaimsJws(token).getBody();
     }
 
     private boolean isTokenExpired(String token) {
@@ -60,9 +61,9 @@ public class JwtTokenUtil implements Serializable {
                 getSigningKey(), SignatureAlgorithm.HS512).compact();
     }
 
-    private boolean validateToken(String token, UserDetails userDetails) {
+    public boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername()) && isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
     private Key getSigningKey() {
